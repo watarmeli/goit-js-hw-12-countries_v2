@@ -16,9 +16,7 @@ refs.searchForm.addEventListener('input', debounce(searchCountry, 500));
 
 function searchCountry(e) {
   const searchQuery = e.target.value;
-  if (!searchQuery) {
-    refs.container.innerHTML = '';
-  }
+
   API.fetchCountries(searchQuery)
     .then(renderCard)
     .catch(error => console.log(error));
