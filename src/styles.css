@@ -1,0 +1,37 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.input::placeholder {
+  font-size: 15px;
+  color: grey;
+}
+
+.card-title {
+  font-size: 50px;
+  text-align: center;
+}
+
+.card-body {
+  display: flex;
+  justify-content: center;
+}
+
+.card-info {
+  margin-right: 50px;
+}
+
+.card-img {
+  width: 250px;
+}
