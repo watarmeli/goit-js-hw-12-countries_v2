@@ -25,13 +25,13 @@ function searchCountry(e) {
 }
 
 function renderCard(countryArr) {
-  if (countryArr.status === 404 || countryArr.length > 10) {
+  if (!countryArr) {
     refs.container.innerHTML = '';
-    error({
-      text: 'Введите более точное название страны',
-      delay: '2000',
-      maxTextHeight: null,
-    });
+    return;
+  }
+  if (countryArr.length > 10 || countryArr.status === 404) {
+    refs.container.innerHTML = '';
+    onFetchError();
     return;
   }
   if (countryArr.length >= 2 && countryArr.length <= 10) {
@@ -41,4 +41,12 @@ function renderCard(countryArr) {
   }
   const murkupCard = countryTpl(countryArr);
   refs.container.innerHTML = murkupCard;
+}
+
+function onFetchError() {
+  error({
+    text: 'Введите более точное название страны',
+    delay: '2000',
+    maxTextHeight: null,
+  });
 }
